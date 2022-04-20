@@ -1,8 +1,9 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from 'react-bootstrap/Button';
 import './itemsList.css';
+import spinner from '../../static/spinner.gif';
 
-const ItemsList = ({data, onDeleteItem}) => {
+const ItemsList = ({data, onDeleteItem, loading}) => {
 
     const renderItems = (arr) => {
         const items = arr.map(item => {
@@ -40,9 +41,11 @@ const ItemsList = ({data, onDeleteItem}) => {
         )
     }
 
-    const items = renderItems(data);
+    const items = !loading ? renderItems(data) : null;
+    const spinnerLoading = loading ? <img src={spinner} alt="loading" style={{"width": "50px"}} /> : null;
     return (
         <div className="items-list-container">
+            {spinnerLoading}
             {items}
         </div>
     );

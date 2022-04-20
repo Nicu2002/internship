@@ -1,6 +1,8 @@
 
 
 class APIService {
+    _URL = `https://retoolapi.dev/geeOvB/data`
+    
     getResource = async (url)=> {
         let res = await fetch(url);
         if (!res.ok) {
@@ -11,8 +13,8 @@ class APIService {
     }
 
     getAllData = async() => {
-        const res = await this.getResource(`https://retoolapi.dev/geeOvB/data`);
-        let filtredArray = res.map(this._parseData).filter(item => item.name !== undefined && item.name !== "");
+        const res = await this.getResource(this._URL);
+        let filtredArray = res.map(this._parseData).filter(item => !!item.name === true);
         
         return filtredArray = this.filterData(filtredArray);
     }
@@ -43,7 +45,7 @@ class APIService {
     }
 
     postData = (newItem) => {
-        fetch("https://reqres.in/api/posts", {
+        fetch(this._URL, {
             method: 'POST',
             headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(newItem)
@@ -51,7 +53,7 @@ class APIService {
     }
 
     getDataByName = async(name) => {
-        const res = await this.getResource(`https://retoolapi.dev/geeOvB/data?Name=${name}`);
+        const res = await this.getResource(`${this._URL}?Name=${name}`);
         
         return res.map(this._parseData);
     }

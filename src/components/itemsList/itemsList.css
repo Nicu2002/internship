@@ -2,6 +2,9 @@
 .items-list-container {
     margin-top: 30px;
     width: 70%;
+}
+
+.list-group {
     height: 75vh;
     overflow-y: scroll;
 }
@@ -9,4 +12,3 @@
 .list-group h5, .job-info, .contacts-info {
     font-size: 1.2vw;
 }
-

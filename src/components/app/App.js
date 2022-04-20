@@ -10,18 +10,22 @@ import Filter from '../filter/Filter'
 class App extends Component {
   state = {
     data: [],
-    term: ''
+    term: '',
+    dataLoad: true
   }
 
   getData = new APIService();
 
   componentDidMount() {
+
     this.getData.getAllData()
       .then(this.onDataLoaded);
   }
+
   onDataLoaded = (newItems)=> {
     this.setState(() => ({
-      data: [...newItems]
+      data: [...newItems],
+      dataLoad : false
     }))
   }
 
@@ -83,7 +87,7 @@ class App extends Component {
       <div className='app'>
         <Filter onChangeTerm={this.onChangeTerm}/>
         <div className='d-flex'>
-          <ItemsList data={visibleData} onDeleteItem={this.onDeleteItem} />
+          <ItemsList data={visibleData} onDeleteItem={this.onDeleteItem} loading={this.state.dataLoad}/>
           <AddForm addItem={this.addItem} />
         </div>
       </div>
