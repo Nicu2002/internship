@@ -1,0 +1,7 @@
+
+.items-list-container {
+    margin-top: 30px;
+    width: 70%;
+    height: 610px;
+    overflow-y: scroll;
+}
