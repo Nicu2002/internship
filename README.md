@@ -1,0 +1,11 @@
+# internship
+1. Use 5 npm modules that you used and like (2/5)
+2. Use Create React App to create single page React application (+)
+    a. On initial screen show following data from https://retoolapi.dev/geeOvB/data (using components from frameworks from the point e.) (+)
+    b. Add "Add More" button in order to add objects to the server(POST method) https://retoolapi.dev/geeOvB/data (+)
+    c.1 Add Filter  input  in order to get filtered objects from the api   example https://retoolapi.dev/geeOvB/data?Name=value (GET method) (+)
+d. User should have possibility to delete item, add Delete button. (+)
+    e. For a friendly UI use one of the UI Frameworks Antd/Semantic-UI/ Material-UI/ React-Bootstrap etc. (+)
+    f. Make sure that all data have Type Checking using Flow/TypeScript(if time) (-)
+3. Upload the project to Github as a public repository(at least 2 commit in one  hour) (+-)
+4. Share the link with us. (+)
