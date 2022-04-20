@@ -44,6 +44,8 @@ class App extends Component {
 
   onChangeTerm = (term) => {
     this.setState(() => ({ term }));
+    this.getData.getDataByName(term)
+      .then(this.onDataLoaded);
   }
   
   idGenerator = nextId('add-');
@@ -76,7 +78,7 @@ class App extends Component {
   }
 
   render() {
-    const visibleData = this.onFilter(this.state.term, this.state.data);
+    const visibleData = this.state.data;
     return (
       <div className='app'>
         <Filter onChangeTerm={this.onChangeTerm}/>

@@ -11,12 +11,12 @@ const ItemsList = ({data, onDeleteItem}) => {
                     as="li"
                     className="d-flex justify-content-between align-items-center"
                     key={item.id}>
-                    <h5 className="col-sm"><b>{item.name}</b></h5>
-                    <div className="ms-5 me-auto col-sm">
-                        <div className="fw-bold">{item.job}</div>
+                    <h5><b>{item.name}</b></h5>
+                    <div className="job-info">
+                        <div className="job fw-bold">{item.job}</div>
                         {item.city}
                     </div>
-                    <div className="me-auto col-sm">
+                    <div className="contacts-info">
                         <b>Email : </b>{item.email}<br/>
                         <b>Phone number : </b>{item.phoneNumber}
                     </div>
@@ -28,6 +28,11 @@ const ItemsList = ({data, onDeleteItem}) => {
                 </ListGroup.Item>
             )
         });
+        if (items.length === 0) {
+            return (
+                <p>ooPs! no contents!</p>
+            )
+        }
         return (
             <ListGroup>
                 {items}
